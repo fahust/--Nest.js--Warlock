@@ -1,5 +1,5 @@
 export interface IMailData {
-  to: string;
-  templateId: string;
-  dynamicTemplateData?: { [key: string]: any };
+    dynamicTemplateData?: { [key: string]: any };
+    to: string;
+    templateId: string;
 }

@@ -1,5 +1,5 @@
 export const PERMISSIONS = {
-  ACCESS: 'access:studio',
-  ONBOARDED: 'is:onboarded',
-  EMAIL_VERIFIED: 'email:verified',
+    EMAIL_VERIFIED: 'email:verified',
+    ACCESS: 'access:studio',
+    ONBOARDED: 'is:onboarded'
 };
