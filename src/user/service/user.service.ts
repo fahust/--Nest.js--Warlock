@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config/dist';
 import { JwtService } from '@nestjs/jwt';
-import Bull from 'bull';
 import parsePhoneNumber from 'libphonenumber-js';
 import { Model } from 'mongoose';
 import { DatabaseEntity } from '@database/decorator/database.decorator';
