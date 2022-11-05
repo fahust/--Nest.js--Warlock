@@ -11,7 +11,7 @@ export class AuthenticationRequestDTO {
     @IsEthereumAddress()
     @ApiProperty({
         description: 'Ethereum address',
-        example: '0xf2033bb24a9ACad66945290DD2e1E39C4638d94F'
+        example: '0x0cE1A376d6CC69a6F74f27E7B1D65171fcB69C80'
     })
     public walletAddress: string;
 }
