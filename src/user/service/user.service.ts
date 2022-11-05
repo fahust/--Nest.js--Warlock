@@ -6,14 +6,11 @@ import parsePhoneNumber from 'libphonenumber-js';
 import { Model } from 'mongoose';
 import { DatabaseEntity } from '@database/decorator/database.decorator';
 import { HelperHashService } from '@helper/service/helper.hash.service';
-import {
-    EMAIL_TEMPLATES,
-    ENUM_USER_STATUS_CODE_ERROR,
-    IUserCreate
-} from '@warlock/shared';
+import { IUserCreate } from '@shared/interfaces';
+import { EMAIL_TEMPLATES } from '@shared/constants';
+import { ENUM_USER_STATUS_CODE_ERROR } from '@shared/enums';
 import { LoggerService } from '@logger/service/logger.service';
 import { MailProducer } from '@mail/producer/mail.producer';
-import { MailDataRequired } from '@sendgrid/mail/src/mail';
 import { UserDocument, UserEntity } from '@user/schema/user.schema';
 import { UpdateUserRequestDTO } from '@user/dto/update-user-request.dto';
 
@@ -140,11 +137,7 @@ export class UserService {
         );
     }
 
-    public async sendEmail(
-        userId: string,
-        email: string,
-        templateId: string
-    ): Promise<Bull.Job<MailDataRequired>> {
+    public async sendEmail(userId: string, email: string, templateId: string) {
         const emailToken = await this.createEmailToken(userId, email);
         const confirmationUrl = `${this.studioUrl}/user/validate/${emailToken}`;
 
