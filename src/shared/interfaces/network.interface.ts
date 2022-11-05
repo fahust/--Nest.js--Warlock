@@ -1,8 +1,8 @@
 export interface INetwork {
-  name: string;
-  currency: string;
-  chainId: number;
-  rpcUrl: string;
-  websocketUrl: string;
-  chainExplorerUrl: string;
+    name: string;
+    rpcUrl: string;
+    currency: string;
+    chainExplorerUrl: string;
+    chainId: number;
+    websocketUrl: string;
 }
