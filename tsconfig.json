@@ -9,7 +9,8 @@
             "@shared/*": ["src/shared/*"],
             "@logger/*": ["src/logger/*"],
             "@helper/*": ["src/helper/*"],
-            "@message/*": ["src/message/*"]
+            "@message/*": ["src/message/*"],
+            "@database/*": ["src/database/*"]
         },
         "module": "commonjs",
         "declaration": true,
