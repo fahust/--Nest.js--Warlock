@@ -64,8 +64,8 @@ export class PermissionGuard implements CanActivate {
                 statusCode: getStatusCode(guardPermission),
                 message: 'authentication.permission.error.forbidden',
                 properties: {
-                    userPermissions: userPermissionList,
-                    requiredPermission: guardPermission
+                    requiredPermission: guardPermission,
+                    userPermissions: userPermissionList
                 }
             });
         }

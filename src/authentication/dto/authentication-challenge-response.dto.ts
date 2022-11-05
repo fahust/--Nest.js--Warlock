@@ -9,7 +9,7 @@ export class AuthenticationChallengeResponseDTO {
     @IsString()
     @ApiProperty({
         description: 'Nonce',
-        example: '8fbebda2-dd21-11ec-83ba-e72899f4ce15'
+        example: '1449c837-e13b-4416-bba0-1b28c90cc288'
     })
     public nonce: string;
 }
