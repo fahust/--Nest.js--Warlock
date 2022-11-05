@@ -2,11 +2,10 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { ApiProperty } from '@nestjs/swagger';
 import { Document, Types } from 'mongoose';
 import {
-    ITag,
     NetworkChainEnum,
     NetworkNameEnum,
     NetworkTypeEnum
-} from '@warlock/shared';
+} from '@shared/enums';
 
 @Schema({ _id: false, versionKey: false })
 export class UserStorage {
@@ -56,12 +55,6 @@ export class UserFavoriteWalletAddress {
         default: [],
         required: true
     })
-    @ApiProperty({
-        type: [String],
-        description: 'User favorite address tag ids',
-        example: ['62ebc8f1379782ca74f6e491']
-    })
-    tags: ITag[];
 
     @Prop({ type: String, required: true, trim: true })
     @ApiProperty({
@@ -433,52 +426,9 @@ export class UserEntity {
     })
     social?: UserSocial;
 
-    @Prop({ type: Number, required: false, min: 0, max: 10_000, default: 500 })
-    @ApiProperty({
-        type: Number,
-        description: 'Fees in bips',
-        example: 500,
-        minimum: 0,
-        maximum: 10_000
-    })
-    warlockFeesSales: number;
-
-    @Prop({ type: Number, required: false, min: 0, max: 10_000, default: 500 })
-    @ApiProperty({
-        type: Number,
-        description: 'Fees in bips',
-        example: 500,
-        minimum: 0,
-        maximum: 10_000
-    })
-    warlockFeesRoyalties: number;
-
-    @Prop({
-        type: [Types.ObjectId],
-        ref: 'TokenEntity',
-        required: true,
-        index: true,
-        default: []
-    })
-    @ApiProperty({
-        type: [String],
-        required: true,
-        description: 'Token Mongo ID Array',
-        example: '62ed4e87ae8e12a17c19406d'
-    })
-    tokens: Types.ObjectId[];
-
-    // WE NEED TO REFACTO THIS BELOW
-    tags?: ITag[];
 }
 
 export const UserDatabaseName = 'users';
 export const UserSchema = SchemaFactory.createForClass(UserEntity);
-
-UserSchema.virtual('tags', {
-    ref: 'TagEntity',
-    localField: '_id',
-    foreignField: 'user'
-});
 
 export type UserDocument = UserEntity & Document;

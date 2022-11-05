@@ -1,7 +1,6 @@
 import { forwardRef, Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { MongooseModule } from '@nestjs/mongoose';
-import { DATABASE_CONNECTION_NAME } from '@database/constant/database.constant';
 import { MailModule } from '@mail/module/mail.module';
 import { UserController } from '@user/controller/user.controller';
 import {
@@ -24,7 +23,7 @@ import { UserService } from '@user/service/user.service';
                     collection: UserDatabaseName
                 }
             ],
-            DATABASE_CONNECTION_NAME
+            'warlock'
         )
     ],
     exports: [UserService, UserBulkService],
