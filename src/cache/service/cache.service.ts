@@ -18,11 +18,11 @@ export class CacheService {
     async get<T>(key: string): Promise<T> {
         return this.cacheManager.get<T>(key);
     }
-    async set<T>(key: string, value: T, options?: CachingConfig): Promise<T> {
+    async set<T>(key: string, value: T, options?) {
         return this.cacheManager.set<T>(key, value, options);
     }
 
-    async setNoLimit<T>(key: string, value: T): Promise<T> {
+    async setNoLimit<T>(key: string, value: T) {
         return this.cacheManager.set<T>(key, value, { ttl: 0 });
     }
 
@@ -36,7 +36,7 @@ export class CacheService {
 
     createCacheOptions(): CacheModuleOptions {
         return {
-            store: redisStore,
+            stored: redisStore,
             url:
                 this.configService.get<string>('app.env') === 'test'
                     ? this.configService.get<string>('cache.memoryServerUrl')

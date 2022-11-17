@@ -12,7 +12,7 @@ export class CacheConfigService implements CacheOptionsFactory {
 
     createCacheOptions(): CacheModuleOptions {
         return {
-            store: redisStore,
+            stored: redisStore,
             url:
                 this.configService.get<string>('app.env') === 'test'
                     ? this.configService.get<string>('cache.memoryServerUrl')
